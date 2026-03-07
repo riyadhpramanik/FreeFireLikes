@@ -191,11 +191,11 @@ def handle_like(uid_path=None):
         elif system == "2":
             default_burst = 220
         else:
-            default_burst = 113
+            default_burst = 100
 
         try:
             burst = int(request.args.get("burst", default_burst))
-            burst = max(1, min(burst, 1000))
+            burst = max(1, min(burst, 220))
         except Exception:
             burst = default_burst
 
@@ -267,3 +267,4 @@ def handle_like(uid_path=None):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
